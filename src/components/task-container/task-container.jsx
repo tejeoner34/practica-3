@@ -1,7 +1,7 @@
 import './task-container.css';
 import FormComponent from '../form-component/form';
 import React from 'react';
-
+import Cards from "../cards/Cards";
 
 
 function ToDoTaskContainer(props) {
@@ -17,9 +17,9 @@ function ToDoTaskContainer(props) {
             <div className='task-container__top-bar'>
 
                 <div className='task-container__task-counter'>
-            	    <p>{props.toDoTask?.length}</p>           
-            	    {props.inProcessTask?.length}           
-            	    {props.doneTask?.length}           
+                    <p>{props.toDoTask?.length}</p>
+                    {props.inProcessTask?.length}
+                    {props.doneTask?.length}
                 </div>
                 <h4>{props.name}</h4>
                 <button>+</button>
@@ -39,6 +39,7 @@ function ToDoTaskContainer(props) {
                 {props.inProcessTask?.map(i => <li>{i}</li>)}
                 {props.doneTask?.map(i => <li>{i}</li>)}
             </div>
+            <Cards></Cards>
         </div>
     )
 

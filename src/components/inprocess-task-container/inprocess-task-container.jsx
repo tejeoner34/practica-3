@@ -1,29 +1,30 @@
 
 
-function InprocessTaskContainer(props){
+function InprocessTaskContainer(props) {
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         props.parentCallBackEvent(e.target.task.value);
-    
+
     }
 
-    return(
+    return (
         <div className='task-container'>
             <div className='task-container__top-bar'>
-                
+
 
             </div>
             <form onSubmit={handleSubmit} className='form-component'>
-            <input type="text" name="task" id="task" placeholder='enter a note'/>
-            <div className='form-component__button-container'>
-                <button type='submit' id='add-button'>Add</button>
-                {/* <button id='cancel-button'>Cancel</button> */}
+                <input type="text" name="task" id="task" placeholder='enter a note' />
+                <div className='form-component__button-container'>
+                    <button type='submit' id='add-button'>Add</button>
+                    {/* <button id='cancel-button'>Cancel</button> */}
+                </div>
+            </form>
+            <div className='task-items'>
+                {props.inProcessTask?.map(i => <li>{i}</li>)}
             </div>
-        </form>
-        <div className='task-items'>
-            {props.inProcessTask?.map(i=> <li>{i}</li>)}
-        </div>
+
         </div>
     )
 
