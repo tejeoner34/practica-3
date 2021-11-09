@@ -1,0 +1,23 @@
+
+.task-container{
+    border: 1px solid black;
+    height: 80vh;
+    width: 30%;
+}
+
+.task-container__top-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
+.task-container__task-counter{
+    border-radius: 50px;
+    background-color: rgb(180, 177, 177);
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
