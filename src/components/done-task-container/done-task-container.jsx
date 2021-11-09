@@ -1,4 +1,6 @@
 import React from "react";
+import Cards from "../cards/Cards";
+
 
 function DoneTaskContainer(props) {
 
@@ -31,7 +33,7 @@ function DoneTaskContainer(props) {
                 </div>
             </form>
             <div className='task-items'>
-                {props.doneTask?.map(i => <li>{i}</li>)}
+                {props.doneTask?.map(i => <Cards data={i}></Cards>)}
             </div>
         </div>
     )

@@ -35,11 +35,10 @@ function ToDoTaskContainer(props) {
                 </div>
             </form>
             <div className='task-items'>
-                {props.toDoTask?.map(i => <li>{i}</li>)}
-                {props.inProcessTask?.map(i => <li>{i}</li>)}
-                {props.doneTask?.map(i => <li>{i}</li>)}
+                {props.toDoTask?.map(i =><Cards data={i}></Cards>)}
+                {props.inProcessTask?.map(i =><Cards data={i}></Cards>)}
             </div>
-            <Cards></Cards>
+            
         </div>
     )
 
