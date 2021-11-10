@@ -3,6 +3,7 @@
     border: 1px solid black;
     height: 80vh;
     width: 30%;
+    overflow: auto;
 }
 
 .task-container__top-bar{

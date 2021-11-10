@@ -15,12 +15,12 @@ function KanbanPage() {
     const [todo, setTodo] = useState([]);
     const [inProcess, setInProcess] = useState([]);
     const [done, setDone] = useState([]);
+    const [cardCounter, setCardCounter] = useState(0);
 
     const todoForm = (childData) => {
         let array = [];
         array.push(childData);
         setTodo(oldvalue => oldvalue.concat(array));
-        console.log(todo)
     }
 
     const inProcessForm = (childData) => {
@@ -37,6 +37,26 @@ function KanbanPage() {
         console.log(done)
     }
 
+    const moveTodoCard = (childData)=>{
+        setTodo(oldvalue=>{
+            const array = oldvalue.splice(childData, 1);
+            setInProcess(oldProcess=> oldProcess.concat(array));
+            return oldvalue.concat([])
+        })
+    }
+
+    const deleteToDoCard = (childata) => {
+        
+        setTodo(oldvalue => oldvalue.filter(elemento => oldvalue.indexOf(elemento) != childata)
+        )// me esta devolviendo el array de eliminados. necesito algo que me devuelva el array actualizado
+    }
+
+    const deleteInProcessCard = (childata) => {
+        
+        setInProcess(oldvalue => oldvalue.filter(elemento => oldvalue.indexOf(elemento) != childata)
+        )// me esta devolviendo el array de eliminados. necesito algo que me devuelva el array actualizado
+    }
+
 
 
     return (
@@ -45,20 +65,23 @@ function KanbanPage() {
 
             <div className='main'>
                 <ToDoTaskContainer
-                 name={toDoTitle}
-                 toDoTask={todo} parentCallBackEvent={todoForm}></ToDoTaskContainer>
+                    name={toDoTitle}
+                    toDoTask={todo} parentCallBackEvent={todoForm}
+                    updateTodo={deleteToDoCard}
+                    moveTodoCard={moveTodoCard}></ToDoTaskContainer>
 
-                 <ToDoTaskContainer
-                 name={inProcessTitle}
-                 inProcessTask={inProcess}
-                 parentCallBackEvent={inProcessForm}
-                 ></ToDoTaskContainer>
+                <ToDoTaskContainer
+                    name={inProcessTitle}
+                    inProcessTask={inProcess}
+                    parentCallBackEvent={inProcessForm}
+                    updateInProcess={deleteInProcessCard}
+                ></ToDoTaskContainer>
 
-                 <DoneTaskContainer
-                 name={doneTitle}
-                 doneTask={done}
-                 parentCallBackEvent={doneForm}
-                 ></DoneTaskContainer>
+                <DoneTaskContainer
+                    name={doneTitle}
+                    doneTask={done}
+                    parentCallBackEvent={doneForm}
+                ></DoneTaskContainer>
 
 
 
