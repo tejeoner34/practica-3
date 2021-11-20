@@ -72,7 +72,7 @@ function ToDoTaskContainer(props) {
                         <input type="text" name="task" id="task" placeholder='enter a note' />
                         <div className='form-component__button-container'>
                             <button type='submit' id='add-button'>Add</button>
-                            <button onClick={(e) => setShow(false)}>Cancel</button>
+                            <button onClick={(e) => setShow(false)}>drgdfgdsf</button>
                         </div>
                     </form>
 
