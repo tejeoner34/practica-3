@@ -13,6 +13,7 @@ function KanbanPage() {
     const doneTitle = 'Done';
 
     const [todo, setTodo] = useState([]);
+    localStorage.setItem('toDo',todo)
     const [inProcess, setInProcess] = useState([]);
     const [done, setDone] = useState([]);
     const [cardCounter, setCardCounter] = useState(0);
@@ -46,9 +47,9 @@ function KanbanPage() {
     }
 
     const deleteToDoCard = (childata) => {
-        
-        setTodo(oldvalue => oldvalue.filter(elemento => oldvalue.indexOf(elemento) != childata)
-        )// me esta devolviendo el array de eliminados. necesito algo que me devuelva el array actualizado
+        console.log(childata)
+        setTodo(oldvalue => oldvalue.filter(elemento => oldvalue.indexOf(elemento) != childata))
+        // me esta devolviendo el array de eliminados. necesito algo que me devuelva el array actualizado
     }
 
     const deleteInProcessCard = (childata) => {
